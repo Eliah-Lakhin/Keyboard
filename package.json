@@ -1,6 +1,6 @@
 {
   "name": "keyboard-cjs",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "High quality keybinding library",
   "main": "Keyboard.js",
   "repository": {

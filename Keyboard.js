@@ -84,8 +84,8 @@
     var down = Object.create(null);
 
     view.addEventListener('keydown', function(e){
-      self.update(e);
       e.name = whatKey(e);
+      self.update(e);
       if (down[e.name]) {
         e.action = 'repeat';
         self.emit(e);
@@ -97,9 +97,9 @@
       }
     }, true);
     view.addEventListener('keyup', function(e){
-      self.update(e);
       e.action = 'release';
       self.lastKey = e.name = whatKey(e);
+      self.update(e);
       self.emit(e);
       down[e.name] = null;
     }, true);
@@ -128,7 +128,7 @@
     update: function update(evt){
       this.lastEvent = evt;
       this.ctrl = evt.ctrlKey;
-      this.shift = evt.shift;
+      this.shift = evt.shift || evt.shiftKey;
       this.alt = evt.altKey;
       this.meta = evt.metaKey;
       this.altgr = evt.altGraphKey;
