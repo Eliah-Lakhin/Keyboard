@@ -1,11 +1,11 @@
 {
-  "name": "keyboard2",
+  "name": "keyboard-cjs",
   "version": "0.0.3",
   "description": "High quality keybinding library",
   "main": "Keyboard.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/Eliah-Lakhin/Keyboard2.git"
+    "url": "git://github.com/Eliah-Lakhin/keyboard-cjs.git"
   },
   "keywords": [
     "keyboard",
