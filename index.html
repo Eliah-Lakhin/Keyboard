@@ -12,6 +12,8 @@
 <style>
 html
 { background: #000; color: #eee; font-family: sans-serif; font-size: 20px; text-align: center; }
+#mods
+{ margin: 0; padding: 0; list-style: none; }
 #mods li
 { box-shadow: inset 0 0 20px 1px hsla(140, 100%, 50%, .2); display: inline-block; padding: 15px; margin: 5px; border-radius: 5px;
   -webkit-transition: .10s; -moz-transition: .10s; }
@@ -23,45 +25,59 @@ html
   padding: 15px; border-radius: 5px; line-height: 50px; height: 50px; }
 </style>
 <script>
+var keyboard = new Keyboard(window);
 
 var modifiers = {
-  Alt: true,
-  AltGr: true,
-  Shift: true,
-  Control: true,
-  Meta: true,
+  Alt: 'Alt',
+  Shift: 'Shift',
+  Control:'Control',
+  MetaLeft: 'Meta',
+  MetaRight: 'Meta',
 };
 
-Object.keys(modifiers).forEach(function(mod){
-  var el = document.createElement('li');
-  el.textContent = mod;
-  el.id = mod;
-  mods.appendChild(el);
-  keyboard.on(mod, function(e){
-    if (e.action === 'activate') {
-      el.className = 'active';
-    } else if (e.action === 'release') {
-      el.className = '';
-    }
-  });
+var names = {};
+
+Object.keys(modifiers).forEach(function(key){
+  var mod = modifiers[key];
+  if (mod in names) {
+    modifiers[key] = names[mod];
+  } else {
+    var el = names[mod] = modifiers[key] = document.createElement('li');
+    el.textContent = mod;
+    el.id = mod;
+    mods.appendChild(el);
+  }
 });
 
 
 var engaged = {};
 
+
+
 keyboard.on('*', function(e){
-  if (e.action === 'activate' && !(e.name in modifiers)) {
-    engaged[e.name] = true;
-    bind.textContent = Object.keys(engaged).join(' · ');
-  } else if (e.action === 'release' && !(e.name in modifiers)) {
-    delete engaged[e.name];
-    bind.textContent = Object.keys(engaged).join(' · ');
+  if (e.action === 'activate') {
+    if (e.name in modifiers) {
+      modifiers[e.name].className = 'active';
+    } else {
+      engaged[e.name] = true;
+      bind.textContent = Object.keys(engaged).join(' · ');
+    }
+  } else if (e.action === 'release') {
+    if (e.name in modifiers) {
+      modifiers[e.name].className = '';
+    } else {
+      delete engaged[e.name];
+      bind.textContent = Object.keys(engaged).join(' · ');
+    }
   }
 });
 
 window.addEventListener('blur', function(e){
   engaged = {};
   bind.textContent = '';
+  for (var k in modifiers) {
+    modifiers[k].className = '';
+  }
 });
 </script>
   </body>
