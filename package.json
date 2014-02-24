@@ -1,11 +1,11 @@
 {
-  "name": "keyboard",
-  "version": "0.0.1",
+  "name": "keyboard2",
+  "version": "0.0.3",
   "description": "High quality keybinding library",
   "main": "Keyboard.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/Benvie/Keyboard.git"
+    "url": "git://github.com/Eliah-Lakhin/Keyboard2.git"
   },
   "keywords": [
     "keyboard",
@@ -16,5 +16,12 @@
     "events"
   ],
   "author": "Brandon Benvie",
+  "contributors": [
+    {
+      "name": "Ilya Lakhin",
+      "email": "eliah.lakhin@gmail.com",
+      "url": "http://lakhin.com/"
+    }
+  ],
   "license": "MIT"
 }

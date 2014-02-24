@@ -40,3 +40,15 @@ kb.on('*', function(e){
 
 * __keyboardEvent.action__  
     What type of action the event originated from. Same as the above filter types.
+
+## Support and Contribution
+
+This project "Keyboard2" was forked from the Brandon Benvie's project "Keyboard"(https://github.com/Benvie/Keyboard) on Feb 24, 2014 by Ilya Lakhin by the terms of MIT license, since the author has abandoned original project, and doesn't manage neither Issues, nor email requests.
+
+The motivation of this fork was support of CommonJS interface for Browserify and RequireJS. But as far Brandon is away(I hope he is ok) I will manage the project: fix bugs, implement new features by request etc. So please feel free to contribute in this project, or ask support in any form convenient for you.
+
+When Brendon return back, I believe we will push all the changes made in the Keyboard2 to the original project back.
+
+ * [Issue tracker](https://github.com/Eliah-Lakhin/Keyboard2/issues).
+ * My email and jabber: eliah.lakhin [at] gmail.com.
+ * My skype: "eliah.lakhin".
