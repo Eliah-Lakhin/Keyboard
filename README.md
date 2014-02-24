@@ -43,6 +43,30 @@ kb.on('*', function(e){
 * __keyboardEvent.action__  
     What type of action the event originated from. Same as the above filter types.
 
+## CommonJS (aka browserify and requirejs)
+
+Installation:
+
+```
+npm install keyboard-cjs --save
+```
+
+Usage as a Browserify's module:
+
+```javascript
+
+var Keyboard = require('keyboard-cjs');
+
+var kb = new Keyboard(window);
+
+```
+
+Usage as a RequireJS module:
+
+require(['Keyboard.js'], function(Keyboard) {
+    var kb = new Keyboard(window);
+});
+
 ## Support and Contribution
 
 This project "keyboard-cjs" was forked from the Brandon Benvie's project ["Keyboard"](https://github.com/Benvie/Keyboard) on Feb 24, 2014 by Ilya Lakhin by the terms of MIT license, since the author has abandoned original project, and doesn't manage neither Issues, nor email requests.
